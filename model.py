@@ -5,19 +5,12 @@ import pickle
 import GetOldTweets3 as got
 from pandas import DataFrame
 
-username = 'MBTA'
-count = 30
-
-# Creation of query 
-tweetCriteria = got.manager.TweetCriteria().setUsername(username).setMaxTweets(count)
-
-#Tweets into a list
-tweets = []
-for i in range(count):
-    twit = got.manager.TweetManager.getTweets(tweetCriteria)[i]
-    tweets.append(twit.text)
-df = DataFrame(tweets, columns = ['Tweet'])
-print(df)
-
+df = pd.read_csv("data.csv", engine = "python")
+del df['Unnamed: 0']
+df['tweet'] = pd.Series.to_string(df['tweet'])
+print(type(df['tweet']))
+df['alert'] = np.where(df['tweet'].contains("statement"), 1, 0)
+test = df
+test.to_csv("check.csv")
 
 
