@@ -4,7 +4,7 @@ from pandas import DataFrame
 
 ####PREPROCESSING
 #selected keywords which indicate delays
-keywords = 'delayed|delay|resume|resuming|apologies|resumed|Update|bypassing|suspended|detour|delays'
+keywords = 'delayed|delay|resume|resuming|apologies|resumed|Update|bypassing|suspended|detour|delays|Delays|restored'
 #use ?=(match this expression), to add line preferences --> TODO 
 
 #importing data
